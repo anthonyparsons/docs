@@ -29,16 +29,17 @@ Should you wish to provide DNS services, you'll need to add A records for your n
 
 If you plan to use a domain name for your nameservers that you will also be hosting DNS services for, then you'll need to ask your domain name registrar to create [DNS glue records](http://en.wikipedia.org/wiki/Domain_Name_System#Circular_dependencies_and_glue_records) based on your Linode's IP addresses before proceeding.
 
+## Disable Firewall & Utilities
+
+https://documentation.cpanel.net/display/ALD/Installation+Guide+-+System+Requirements
+
 ## Install cPanel
 
 Before proceeding, make sure you've purchased a cPanel license. You may obtain a license from the [cPanel Store](https://store.cpanel.net/). Next, log into your Linode as the "root" user via SSH to its IP address (found on the "Remote Access" tab in the Linode Manager). 
 
 1. Issue the following commands to download and install cPanel:
 
-        cd /home
-        wget -N http://httpupdate.cpanel.net/latest
-        sh latest
-        /usr/local/cpanel/cpkeyclt
+        cd /home && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
 
     Please note, the installation process may take a long time to complete. Once it's finished, you may access cPanel at `https://12.34.56.78:2087` (replace `12.34.56.78` with your Linode's IP address or domain name). If your browser displays a warning message like the one below, you can ignore and continue for now.
 
